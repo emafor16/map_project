@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="09e78110-611d-4aa7-ae97-c2fb75bc5d5c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/DiscreteItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/DiscreteItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Tuple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Tuple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/default package/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mining/Cluster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mining/Cluster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mining/ClusterSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mining/ClusterSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mining/QTMiner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mining/QTMiner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utility/ArraySet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utility/ArraySet.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2ybXUnFVAcxn7koYWa9E2q1gjcG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Data.executor": "Run",
+    "Application.MainTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/emanu/IdeaProjects/Quality-Threshold-1",
+    "onboarding.tips.debug.path": "C:/Users/emanu/IdeaProjects/Quality-Threshold/src/Main.java",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="09e78110-611d-4aa7-ae97-c2fb75bc5d5c" name="Changes" comment="" />
+      <created>1750104265228</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1750104265228</updated>
+    </task>
+    <servers />
+  </component>
+</project>

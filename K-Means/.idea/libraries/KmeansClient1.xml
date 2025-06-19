@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="KmeansClient1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/K-Means/KmeansClient/out/artifacts/KmeansClient_jar/KmeansClient.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

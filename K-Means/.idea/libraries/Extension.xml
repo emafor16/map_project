@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Extension">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/K-Means/out/artifacts/Extension_jar/Extension.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"Client"},{"l":"ClientExtension"},{"l":"data"},{"l":"database"},{"l":"keyboardinput"},{"l":"mining"},{"l":"Server"}];updateSearchResults();

@@ -1,11 +1,10 @@
 package Server;
 
 import data.Data;
-import data.OutOfRangeSampleSize;
 import database.DatabaseConnectionException;
 import database.EmptySetException;
 import database.NoValueException;
-import mining.KmeansMiner;
+import mining.QTMiner;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -32,9 +31,9 @@ public class ServerOneClient extends Thread {
      */
     private ObjectOutputStream out;
     /**
-     * riferimento all'oggetto di classe KmeansMiner
+     * riferimento all'oggetto di classe QTMiner
      */
-    private KmeansMiner kmeans;
+    private QTMiner qtminer;
     /**
      * riferimento alla tabella scaricata da DB e salvata all'interno di un oggetto Data
      */
@@ -83,25 +82,21 @@ public class ServerOneClient extends Thread {
 
                     case 1: //learningFromDbTable
                         try{
-                            int k = (int) in.readObject();
-                            kmeans = new KmeansMiner(k);
-                            int numiterazioni = kmeans.kmeans(data);
+                            double radius = (double) in.readObject();
+                            qtminer = new QTMiner(radius);
+                            int numclusters = qtminer.compute(data);
                             out.writeObject("OK");
-                            out.writeObject(numiterazioni);
-                            out.writeObject(kmeans.getC().toString(data));
-                        } catch (OutOfRangeSampleSize e) {
-                                out.writeObject("Errore: " + e.getMessage());
-                        } catch (NegativeArraySizeException e){
-                                out.writeObject("Errore: valore di cluster(k) negativo: " + e.getMessage());
-                        } catch (NotSerializableException e){
-                                out.writeObject("Errore: " + e.getMessage());
+                            out.writeObject(numclusters);
+                            out.writeObject(qtminer.getC().toString(data));
+                        } catch (Exception e) {
+                            out.writeObject("Errore: " + e.getMessage());
                         }
                         break;
 
                     case 2: //storeClusterInFile
                         try {
                             String nomeFile = (String) in.readObject();
-                            kmeans.salva(nomeFile + ".txt");
+                            qtminer.salva(nomeFile + ".txt");
                             out.writeObject("OK");
                         } catch (Exception e) {
                             out.writeObject("Errore di salvataggio: " + e.getMessage());
@@ -113,21 +108,11 @@ public class ServerOneClient extends Thread {
                             String nomeFile = (String) in.readObject();
                             Data data = new Data("playtennis"); //deve corrispondere al nome della tabella DB
                             String fileName = (nomeFile + ".txt");
-                            kmeans = new KmeansMiner(fileName);
+                            qtminer = new QTMiner(fileName);
                             out.writeObject("OK");
-                            out.writeObject(kmeans.getC().toString(data));
-                        } catch (NoValueException e) {
-                            out.writeObject("Errore di lettura: "+ e.getMessage());
-                        } catch (DatabaseConnectionException e) {
-                            out.writeObject("Errore di connessione al database: " + e.getMessage());
-                        } catch (SQLException e) {
-                            out.writeObject("Errore nella query: " + e.getMessage());
-                        } catch (EmptySetException e) {
-                            out.writeObject("Tabella vuota: " + e.getMessage());
-                        } catch (IOException e){
-                            out.writeObject("Errore di I/O: " + e.getMessage());
-                        } catch (ClassCastException e){
-                            out.writeObject("Errore di ClassCast: " + e.getMessage());
+                            out.writeObject(qtminer.getC().toString(data));
+                        } catch (Exception e) {
+                            out.writeObject("Errore: "+ e.getMessage());
                         }
                         break;
                 }

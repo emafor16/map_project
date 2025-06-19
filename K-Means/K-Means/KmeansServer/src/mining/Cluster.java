@@ -2,116 +2,122 @@ package mining;
 
 import data.Data;
 import data.Tuple;
-import java.io.Serializable;
+
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
-/**
- * Classe che modella un Cluster.
- *
- * @author map tutor
- */
-public class Cluster implements Serializable {
-	/**
-	 * contiene il centroide
-	 */
+
+public class Cluster implements Iterable<Integer> , Comparable<Cluster> {
+
 	private Tuple centroid;
 
-	/**
-	 * List contiene i dati clusterizzati
-	 */
 	private Set<Integer> clusteredData;
 
-	/**
-	 * costruttore di classe
-	 * @param centroid
-	 */
 	Cluster(Tuple centroid){
 		this.centroid=centroid;
-		clusteredData=new HashSet<Integer>();
+		this.clusteredData=new HashSet<>();
 		
 	}
-
-	/**
-	 * metodo get per l'attributo centroid
-	 * @return restituisce i centroidi
-	 */
+		
 	Tuple getCentroid(){
 		return centroid;
 	}
-
-	/**
-	 * calcola i centroidi del cluster
-	 * @param data
-	 */
-	void computeCentroid(Data data){
-		for(int i=0;i<centroid.getLength();i++){
-			centroid.get(i).update(data, clusteredData);
-			
-		}	
-	}
-
-	/**
-	 * Comportamento: remove the tuple that has changed the cluster
-	 * @param id
-	 * @return
-	 */
+	
+	//return true if the tuple is changing cluster
 	boolean addData(int id){
 		return clusteredData.add(id);
 		
 	}
-
-	/**
-	 * Comportamento: verifica se una transazione è clusterizzata nell'array corrente
-	 */
+	
+	//verifica se una transazione è clusterizzata nell'array corrente
 	boolean contain(int id){
 		return clusteredData.contains(id);
 	}
+	
 
-
-	/**
-	 * Comportamento: remove the tuple that has changed the cluster
-	 * @param id
-	 */
+	//remove the tuple that has changed the cluster
 	void removeTuple(int id){
 		clusteredData.remove(id);
 		
 	}
-
-	/**
-	 * Overriding del metodo toString per adattarsi alla classe.
-	 * @return  restituisce una stringa che rappresenta lo stato di Cluster.
-	 */
-	@Override
-	public String toString(){
+	
+	public int getSize(){
+		return clusteredData.size();
+	}
+	
+	
+	public Iterator<Integer> iterator(){
+		return clusteredData.iterator();
+	}
+	
+	/*public String toString(){
 		String str="Centroid=(";
 		for(int i=0;i<centroid.getLength();i++)
 			str+=centroid.get(i);
 		str+=")";
 		return str;
 		
-	}
+	}*/
+	
 
-	/**
-	 * Overriding del metodo toString per adattarsi alla classe con input Data
-	 * @param data
-	 * @return restituisce una stringa che rappresenta lo stato di Cluster.
-	 */
-	public String toString(Data data){
+	/*public String toString(Data data){
 		String str="Centroid=(";
-		for(int i=0;i<centroid.getLength();i++)
-			str+=centroid.get(i)+ " ";
+		for(int i=0; i < centroid.getLength(); i++)
+			str += centroid.get(i) + " ";
+		if (clusteredData.size() > 0) {
+			int exampleIndex = clusteredData.toArray()[0];
+			str += data.getValue(exampleIndex, data.getNumberOfAttributes() - 1);
+		}
+
 		str+=")\nExamples:\n";
-		for(int k : clusteredData){
+		int array[]=clusteredData.toArray();
+		for(int i=0;i<array.length;i++){
 			str+="[";
-			for(int j=0;j<Data.getNumberOfAttributes();j++)
-				str+=data.getAttributeValue(k, j)+" ";
-			str+="] dist="+getCentroid().getDistance(data.getItemSet(k))+"\n";
+			for(int j=0; j < data.getNumberOfAttributes(); j++)
+				str += data.getValue(array[i], j) + " ";
+			str+="] dist="+getCentroid().getDistance(data.getItemSet(array[i]))+"\n";
 			
 		}
-		str+="\nAvgDistance="+getCentroid().avgDistance(data, clusteredData.toArray(Integer[]::new));
+		str+="\nAvgDistance="+getCentroid().avgDistance(data, array);
 		return str;
 		
+	}*/
+
+	public int compareTo(Cluster other) {
+		return Integer.compare(this.getSize(), other.getSize());
+	}
+
+	public String toString(Data data) {
+		StringBuilder str = new StringBuilder("Centroid=(");
+		for (int i = 0; i < centroid.getLength(); i++) {
+			str.append(centroid.get(i)).append(" ");
+		}
+
+		// Aggiunta della classe (PlayTennis) da un esempio, se esiste
+		Iterator<Integer> it = this.iterator();
+		if (it.hasNext()) {
+			int exampleIndex = it.next();
+			str.append(data.getValue(exampleIndex, data.getNumberOfAttributes() - 1));
+		}
+		str.append(")\nExamples:\n");
+
+		double totalDistance = 0;
+		int count = 0;
+		for (int id : this) {
+			str.append("[");
+			for (int j = 0; j < data.getNumberOfAttributes(); j++) {
+				str.append(data.getValue(id, j)).append(" ");
+			}
+			double dist = centroid.getDistance(data.getItemSet(id));
+			totalDistance += dist;
+			count++;
+			str.append("] dist=").append(dist).append("\n");
+		}
+
+		double avgDist = (count > 0) ? totalDistance / count : 0;
+		str.append("\nAvgDistance=").append(avgDist);
+		return str.toString();
 	}
 
 }

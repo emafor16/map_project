@@ -1,9 +1,9 @@
 package data;
 
+import database.*;
+
 import java.sql.SQLException;
 import java.util.*;
-
-import database.*;
 
 /**
  * Classe che si occupa di modellare l'insieme di transazioni o tuple.
@@ -271,5 +271,8 @@ public class Data {
 			}
 		return t;
 	}
-	
+
+	public boolean getValue(int exampleIndex, int attributeIndex) {
+		return data.get(exampleIndex).get(attributeIndex) != null && (boolean) data.get(exampleIndex).get(attributeIndex);
+	}
 }

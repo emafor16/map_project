@@ -104,7 +104,9 @@ public class MainTest {
         System.out.print("Nome della tabella di database:");
         String tabName=Keyboard.readString();
         out.writeObject(tabName);
+        System.out.println("Tabella inviata al server: " + tabName);
         String result = (String)in.readObject();
+        System.out.println("Risultato ricevuto dal server: " + result);
         if(!result.equals("OK"))
             throw new ServerException(result);
 

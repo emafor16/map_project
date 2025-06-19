@@ -1,14 +1,16 @@
 package mining;
 
 import data.Data;
-import data.EmptyDatasetException;
 import data.Tuple;
+import exceptions.ClusteringRadiusException;
+import exceptions.EmptyDatasetException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
 
 
-public class QTMiner {
+public class QTMiner implements Serializable {
 
     private ClusterSet C;
     private double radius;

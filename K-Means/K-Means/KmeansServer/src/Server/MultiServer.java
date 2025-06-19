@@ -60,6 +60,16 @@ public class MultiServer {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        new MultiServer(new Integer(args[0]).intValue());
+        if (args.length == 0) {
+            System.err.println("Errore: specificare la porta come argomento.");
+            System.exit(1); // Termina il programma
+        }
+        try {
+            int port = Integer.parseInt(args[0]); // Converte l'argomento in un numero intero
+            new MultiServer(port);
+        } catch (NumberFormatException e) {
+            System.err.println("Errore: la porta deve essere un numero intero valido.");
+            System.exit(1);
+        }
     }
 }

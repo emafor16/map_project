@@ -8,7 +8,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientExtension.ControllerConnection">
    <children>
-      <Label alignment="CENTER" layoutX="90.0" layoutY="24.0" prefHeight="54.0" prefWidth="220.0" text="Benvenuto in K-Means" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="75.0" layoutY="24.0" prefHeight="54.0" prefWidth="250.0" text="Benvenuto in Quality-Threshold" textAlignment="CENTER">
          <font>
             <Font name="Dubai Regular" size="18.0" />
          </font>

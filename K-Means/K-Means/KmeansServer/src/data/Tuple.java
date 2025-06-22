@@ -2,7 +2,7 @@ package data;
 
 import java.io.Serializable;
 
-/**
+    /**
  * Classe che rappresenta una tupla come sequenza di coppie attributo-valore.
  *
  * Implementa l'interfaccia Serializable cosi che lo stato dell'oggetto può essere serializzato

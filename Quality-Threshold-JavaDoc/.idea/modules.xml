@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ExtensionC/ExtensionC.iml" filepath="$PROJECT_DIR$/ExtensionC/ExtensionC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QTClient/QTClient.iml" filepath="$PROJECT_DIR$/QTClient/QTClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QTServer/QTServer.iml" filepath="$PROJECT_DIR$/QTServer/QTServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Quality-Threshold.iml" filepath="$PROJECT_DIR$/Quality-Threshold.iml" />
+    </modules>
+  </component>
+</project>

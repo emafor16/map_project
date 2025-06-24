@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"keyboardinput","l":"Keyboard"},{"p":"main","l":"MainTest"},{"p":"main","l":"ServerException"}];updateSearchResults();
